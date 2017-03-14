@@ -9,6 +9,7 @@
 import UIKit
 import JSQMessagesViewController
 import MobileCoreServices
+import AVKit
 class PKChatVC: JSQMessagesViewController {
 
     
@@ -116,6 +117,25 @@ class PKChatVC: JSQMessagesViewController {
         
         
     }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
+        print("IndexPAth\(indexPath)")
+        
+        let message =  self.message[indexPath.item]
+        if message.isMediaMessage{
+            if let mediaItem = message.media as? JSQVideoMediaItem
+            {
+            
+                let player = AVPlayer(url:mediaItem.fileURL)
+                let playerViewController =  AVPlayerViewController()
+                playerViewController.player = player
+                self.present(playerViewController, animated: true, completion: nil)
+                
+            }
+        }
+    }
+    
+    
     // MARK: - Action Event
     
     
