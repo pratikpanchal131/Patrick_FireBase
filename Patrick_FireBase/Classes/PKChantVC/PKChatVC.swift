@@ -10,6 +10,8 @@ import UIKit
 import JSQMessagesViewController
 import MobileCoreServices
 import AVKit
+import FirebaseDatabase
+
 class PKChatVC: JSQMessagesViewController {
 
     
@@ -22,6 +24,23 @@ class PKChatVC: JSQMessagesViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+  
+        let rootRef = FIRDatabase.database().reference()
+        let messageRef = rootRef.child("Messages")
+        
+        messageRef.childByAutoId().setValue("First Name")
+        messageRef.childByAutoId().setValue("Last Name")
+        print("messageRef \(messageRef)")
+        print("messageRef \(messageRef)")
+        
+        messageRef.observe(FIRDataEventType.value) { (snapshot:FIRDataSnapshot) in
+            
+            print(snapshot.value)
+            if let dict = snapshot.value as? NSDictionary
+            {
+                print("dict \(dict)")
+            }
+        }
         
         self.senderId = "1"
         self.senderDisplayName = "Pratik"
