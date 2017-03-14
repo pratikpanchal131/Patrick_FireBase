@@ -8,7 +8,7 @@
 
 import UIKit
 import JSQMessagesViewController
-
+import MobileCoreServices
 class PKChatVC: JSQMessagesViewController {
 
     
@@ -45,11 +45,41 @@ class PKChatVC: JSQMessagesViewController {
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
      
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        self.present(imagePicker, animated: true, completion: nil)
+        
+
+        let sheet = UIAlertController(title: "Media Message", message: "Please Select Media", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let cancel =  UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction) in
+            
+        }
+        
+        let photo =  UIAlertAction(title: "Photo Library", style:.default) { (alert : UIAlertAction) in
+            
+            self.getImageFrom(type: kUTTypeImage)
+        }
+        let video  =  UIAlertAction(title: "Video Library", style:.default) { (alert : UIAlertAction) in
+            self.getImageFrom(type: kUTTypeMovie)
+        }
+        sheet.addAction(cancel)
+        sheet.addAction(photo)
+        sheet.addAction(video)
+        self.present(sheet, animated: true, completion: nil)
+        
+
         
         
+    }
+    
+    func getImageFrom(type:CFString)
+    {
+        
+      
+        
+        print(type)
+        let mediaPicker = UIImagePickerController()
+        mediaPicker.delegate = self
+        mediaPicker.mediaTypes = [type as String]
+        self.present(mediaPicker, animated: true, completion: nil)
     }
     
     
@@ -104,16 +134,24 @@ class PKChatVC: JSQMessagesViewController {
 
 }
 
-
+//MARK: - Display Image on Chat VC
 extension PKChatVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
-        let photo  = JSQPhotoMediaItem(image:picture)
-        
-        
-        message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
+      
+        if let picture = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            let photo  = JSQPhotoMediaItem(image:picture)
+            
+            
+            message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
+            
+        }else if let video = info[UIImagePickerControllerMediaURL] as? NSURL
+        {
+            let videoItem = JSQVideoMediaItem(fileURL:video as URL! ,isReadyToPlay:true)
+            message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: videoItem))
+
+        }
         self.dismiss(animated: true, completion: nil)
         
         collectionView.reloadData()
