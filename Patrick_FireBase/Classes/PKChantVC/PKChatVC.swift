@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
-class PKChatVC: UIViewController {
+class PKChatVC: JSQMessagesViewController {
 
+    
+    var message = [JSQMessage]()
+    
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -17,11 +22,65 @@ class PKChatVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.senderId = "1"
+        self.senderDisplayName = "Pratik"
+  
+        collectionView.reloadData()
         
+    }
+    
+    // MARK: - Send Button
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+    
+        print("text Message is \(text)")
+        
+        
+        message.append(JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: text))
+        print("Messages is \(message)")
+        collectionView.reloadData()
 
     }
     
     
+    
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        
+    }
+    
+    
+    
+    // MARK: - Collectionview DataSource
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return message.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        
+        return message[indexPath.item]
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
+        let bubble =    JSQMessagesBubbleImageFactory ()
+    
+        
+        return bubble?.outgoingMessagesBubbleImage(with: .black)
+    }
+
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
+        
+        return  nil;
+        
+        
+    }
     // MARK: - Action Event
     
     

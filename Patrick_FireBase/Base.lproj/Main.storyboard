@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IjB-jd-H02">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vbI-mw-hGb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -50,9 +50,12 @@
                                                     <action selector="btnLoginAnonymouslyClicked:" destination="IjB-jd-H02" eventType="touchUpInside" id="PKb-c1-rJs"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG0-WM-fQi">
-                                                <rect key="frame" x="143" y="190" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG0-WM-fQi">
+                                                <rect key="frame" x="123" y="192" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Ar2-6a-e5Y"/>
+                                                    <constraint firstAttribute="width" constant="50" id="Ikq-LM-oFg"/>
+                                                </constraints>
                                                 <state key="normal" title="Button" image="googleLogo"/>
                                                 <connections>
                                                     <action selector="btnLoginWithGoogle:" destination="IjB-jd-H02" eventType="touchUpInside" id="fZl-2o-P34"/>
@@ -64,6 +67,8 @@
                                             <constraint firstItem="yso-NI-SbW" firstAttribute="centerX" secondItem="H8Y-yN-4ug" secondAttribute="centerX" id="9cY-bU-w7C"/>
                                             <constraint firstAttribute="trailing" secondItem="yso-NI-SbW" secondAttribute="trailing" id="BIx-kq-gVB"/>
                                             <constraint firstItem="yso-NI-SbW" firstAttribute="centerY" secondItem="H8Y-yN-4ug" secondAttribute="centerY" id="CjJ-3g-EPG"/>
+                                            <constraint firstItem="UG0-WM-fQi" firstAttribute="top" secondItem="yso-NI-SbW" secondAttribute="bottom" constant="40" id="QQo-sc-FJ5"/>
+                                            <constraint firstItem="UG0-WM-fQi" firstAttribute="centerX" secondItem="yso-NI-SbW" secondAttribute="centerX" id="Rbb-PI-JOA"/>
                                             <constraint firstAttribute="height" constant="256" id="bEv-KA-adx"/>
                                             <constraint firstItem="yso-NI-SbW" firstAttribute="leading" secondItem="H8Y-yN-4ug" secondAttribute="leading" id="cqV-n2-5hQ"/>
                                         </constraints>
@@ -119,14 +124,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmJ-hi-66W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3865" y="-493"/>
+            <point key="canvasLocation" x="4081" y="-498"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RC5-Af-4sE">
             <objects>
                 <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vbI-mw-hGb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Jcq-dy-Mzh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jcq-dy-Mzh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -140,7 +145,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsW-Ov-NCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152.8000000000002" y="-493.40329835082463"/>
+            <point key="canvasLocation" x="3369" y="-498"/>
         </scene>
     </scenes>
     <resources>
