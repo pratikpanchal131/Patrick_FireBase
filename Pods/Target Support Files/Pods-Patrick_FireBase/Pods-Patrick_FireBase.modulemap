@@ -1,0 +1,6 @@
+framework module Pods_Patrick_FireBase {
+  umbrella header "Pods-Patrick_FireBase-umbrella.h"
+
+  export *
+  module * { export * }
+}

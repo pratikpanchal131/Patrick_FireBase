@@ -1,0 +1,924 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F5A43C3A3D2DCFCFB4FCBFE /* Pods_Patrick_FireBaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55386B5E580CA079722DD05 /* Pods_Patrick_FireBaseUITests.framework */; };
+		3AAF49465255F52A0297B051 /* Pods_Patrick_FireBaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328B200B6C970DF6FB95B8E6 /* Pods_Patrick_FireBaseTests.framework */; };
+		940C93545BF9CB654EE5966B /* Pods_Patrick_FireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADDE8F53B870CDD68930321 /* Pods_Patrick_FireBase.framework */; };
+		A9A7FD3B1E77BFF800A22623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD3A1E77BFF800A22623 /* AppDelegate.swift */; };
+		A9A7FD3D1E77BFF800A22623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD3C1E77BFF800A22623 /* ViewController.swift */; };
+		A9A7FD401E77BFF800A22623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD3E1E77BFF800A22623 /* Main.storyboard */; };
+		A9A7FD421E77BFF800A22623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD411E77BFF800A22623 /* Assets.xcassets */; };
+		A9A7FD451E77BFF800A22623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD431E77BFF800A22623 /* LaunchScreen.storyboard */; };
+		A9A7FD501E77BFF800A22623 /* Patrick_FireBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD4F1E77BFF800A22623 /* Patrick_FireBaseTests.swift */; };
+		A9A7FD5B1E77BFF800A22623 /* Patrick_FireBaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD5A1E77BFF800A22623 /* Patrick_FireBaseUITests.swift */; };
+		A9A7FD6B1E77C08B00A22623 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD6A1E77C08B00A22623 /* GoogleService-Info.plist */; };
+		A9A7FD8D1E77C28100A22623 /* PKChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD6E1E77C28100A22623 /* PKChatVC.swift */; };
+		A9A7FD8E1E77C28100A22623 /* PKLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD701E77C28100A22623 /* PKLoginVC.swift */; };
+		A9A7FD8F1E77C28100A22623 /* PKProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD721E77C28100A22623 /* PKProfileVC.swift */; };
+		A9A7FD901E77C28100A22623 /* PKRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FD741E77C28100A22623 /* PKRegisterVC.swift */; };
+		A9A7FD911E77C28100A22623 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD7A1E77C28100A22623 /* Roboto-Black.ttf */; };
+		A9A7FD921E77C28100A22623 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD7B1E77C28100A22623 /* Roboto-BlackItalic.ttf */; };
+		A9A7FD931E77C28100A22623 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD7C1E77C28100A22623 /* Roboto-Bold.ttf */; };
+		A9A7FD941E77C28100A22623 /* Roboto-BoldCondensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD7D1E77C28100A22623 /* Roboto-BoldCondensed.ttf */; };
+		A9A7FD951E77C28100A22623 /* Roboto-BoldCondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD7E1E77C28100A22623 /* Roboto-BoldCondensedItalic.ttf */; };
+		A9A7FD961E77C28100A22623 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD7F1E77C28100A22623 /* Roboto-BoldItalic.ttf */; };
+		A9A7FD971E77C28100A22623 /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD801E77C28100A22623 /* Roboto-Condensed.ttf */; };
+		A9A7FD981E77C28100A22623 /* Roboto-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD811E77C28100A22623 /* Roboto-CondensedItalic.ttf */; };
+		A9A7FD991E77C28100A22623 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD821E77C28100A22623 /* Roboto-Italic.ttf */; };
+		A9A7FD9A1E77C28100A22623 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD831E77C28100A22623 /* Roboto-Light.ttf */; };
+		A9A7FD9B1E77C28100A22623 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD841E77C28100A22623 /* Roboto-LightItalic.ttf */; };
+		A9A7FD9C1E77C28100A22623 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD851E77C28100A22623 /* Roboto-Medium.ttf */; };
+		A9A7FD9D1E77C28100A22623 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD861E77C28100A22623 /* Roboto-MediumItalic.ttf */; };
+		A9A7FD9E1E77C28100A22623 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD871E77C28100A22623 /* Roboto-Regular.ttf */; };
+		A9A7FD9F1E77C28100A22623 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD881E77C28100A22623 /* Roboto-Thin.ttf */; };
+		A9A7FDA01E77C28100A22623 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A7FD891E77C28100A22623 /* Roboto-ThinItalic.ttf */; };
+		A9A7FDA31E77C95700A22623 /* PKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7FDA21E77C95700A22623 /* PKHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9A7FD4C1E77BFF800A22623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9A7FD2F1E77BFF700A22623 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9A7FD361E77BFF700A22623;
+			remoteInfo = Patrick_FireBase;
+		};
+		A9A7FD571E77BFF800A22623 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9A7FD2F1E77BFF700A22623 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9A7FD361E77BFF700A22623;
+			remoteInfo = Patrick_FireBase;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C3F3B93018988694CD37357 /* Pods-Patrick_FireBaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patrick_FireBaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patrick_FireBaseTests/Pods-Patrick_FireBaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		328B200B6C970DF6FB95B8E6 /* Pods_Patrick_FireBaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patrick_FireBaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A941BF67A518A95700667CC /* Pods-Patrick_FireBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patrick_FireBase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patrick_FireBase/Pods-Patrick_FireBase.debug.xcconfig"; sourceTree = "<group>"; };
+		8C8D27689143252C0DB57022 /* Pods-Patrick_FireBaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patrick_FireBaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patrick_FireBaseUITests/Pods-Patrick_FireBaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9A7FD371E77BFF700A22623 /* Patrick_FireBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Patrick_FireBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A7FD3A1E77BFF800A22623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9A7FD3C1E77BFF800A22623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9A7FD3F1E77BFF800A22623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9A7FD411E77BFF800A22623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9A7FD441E77BFF800A22623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9A7FD461E77BFF800A22623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9A7FD4B1E77BFF800A22623 /* Patrick_FireBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Patrick_FireBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A7FD4F1E77BFF800A22623 /* Patrick_FireBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patrick_FireBaseTests.swift; sourceTree = "<group>"; };
+		A9A7FD511E77BFF800A22623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9A7FD561E77BFF800A22623 /* Patrick_FireBaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Patrick_FireBaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A7FD5A1E77BFF800A22623 /* Patrick_FireBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patrick_FireBaseUITests.swift; sourceTree = "<group>"; };
+		A9A7FD5C1E77BFF800A22623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9A7FD6A1E77C08B00A22623 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9A7FD6E1E77C28100A22623 /* PKChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKChatVC.swift; sourceTree = "<group>"; };
+		A9A7FD701E77C28100A22623 /* PKLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKLoginVC.swift; sourceTree = "<group>"; };
+		A9A7FD721E77C28100A22623 /* PKProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKProfileVC.swift; sourceTree = "<group>"; };
+		A9A7FD741E77C28100A22623 /* PKRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKRegisterVC.swift; sourceTree = "<group>"; };
+		A9A7FD7A1E77C28100A22623 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		A9A7FD7B1E77C28100A22623 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FD7C1E77C28100A22623 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		A9A7FD7D1E77C28100A22623 /* Roboto-BoldCondensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldCondensed.ttf"; sourceTree = "<group>"; };
+		A9A7FD7E1E77C28100A22623 /* Roboto-BoldCondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldCondensedItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FD7F1E77C28100A22623 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FD801E77C28100A22623 /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
+		A9A7FD811E77C28100A22623 /* Roboto-CondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-CondensedItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FD821E77C28100A22623 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		A9A7FD831E77C28100A22623 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		A9A7FD841E77C28100A22623 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FD851E77C28100A22623 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		A9A7FD861E77C28100A22623 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FD871E77C28100A22623 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		A9A7FD881E77C28100A22623 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		A9A7FD891E77C28100A22623 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		A9A7FDA21E77C95700A22623 /* PKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PKHelper.swift; sourceTree = "<group>"; };
+		B55386B5E580CA079722DD05 /* Pods_Patrick_FireBaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patrick_FireBaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC66715F8EB34569B9E38C68 /* Pods-Patrick_FireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patrick_FireBase.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patrick_FireBase/Pods-Patrick_FireBase.release.xcconfig"; sourceTree = "<group>"; };
+		CFF1A7EC85EDE9903500676B /* Pods-Patrick_FireBaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patrick_FireBaseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patrick_FireBaseTests/Pods-Patrick_FireBaseTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D86CC256293219F3885C6CB4 /* Pods-Patrick_FireBaseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patrick_FireBaseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patrick_FireBaseUITests/Pods-Patrick_FireBaseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FADDE8F53B870CDD68930321 /* Pods_Patrick_FireBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patrick_FireBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9A7FD341E77BFF700A22623 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				940C93545BF9CB654EE5966B /* Pods_Patrick_FireBase.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A7FD481E77BFF800A22623 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AAF49465255F52A0297B051 /* Pods_Patrick_FireBaseTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A7FD531E77BFF800A22623 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F5A43C3A3D2DCFCFB4FCBFE /* Pods_Patrick_FireBaseUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02D59E141CB7E621FE13962B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FADDE8F53B870CDD68930321 /* Pods_Patrick_FireBase.framework */,
+				328B200B6C970DF6FB95B8E6 /* Pods_Patrick_FireBaseTests.framework */,
+				B55386B5E580CA079722DD05 /* Pods_Patrick_FireBaseUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9A7FD2E1E77BFF700A22623 = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD391E77BFF800A22623 /* Patrick_FireBase */,
+				A9A7FD4E1E77BFF800A22623 /* Patrick_FireBaseTests */,
+				A9A7FD591E77BFF800A22623 /* Patrick_FireBaseUITests */,
+				A9A7FD381E77BFF700A22623 /* Products */,
+				F34DB26124B0EE3880B70959 /* Pods */,
+				02D59E141CB7E621FE13962B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A9A7FD381E77BFF700A22623 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD371E77BFF700A22623 /* Patrick_FireBase.app */,
+				A9A7FD4B1E77BFF800A22623 /* Patrick_FireBaseTests.xctest */,
+				A9A7FD561E77BFF800A22623 /* Patrick_FireBaseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9A7FD391E77BFF800A22623 /* Patrick_FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD6C1E77C28100A22623 /* Classes */,
+				A9A7FD751E77C28100A22623 /* Constant */,
+				A9A7FD761E77C28100A22623 /* Model */,
+				A9A7FD771E77C28100A22623 /* Resources */,
+				A9A7FD8B1E77C28100A22623 /* Utility */,
+				A9A7FD8C1E77C28100A22623 /* Views */,
+				A9A7FD3A1E77BFF800A22623 /* AppDelegate.swift */,
+				A9A7FD3C1E77BFF800A22623 /* ViewController.swift */,
+				A9A7FD3E1E77BFF800A22623 /* Main.storyboard */,
+				A9A7FD411E77BFF800A22623 /* Assets.xcassets */,
+				A9A7FD431E77BFF800A22623 /* LaunchScreen.storyboard */,
+				A9A7FD461E77BFF800A22623 /* Info.plist */,
+				A9A7FD6A1E77C08B00A22623 /* GoogleService-Info.plist */,
+			);
+			path = Patrick_FireBase;
+			sourceTree = "<group>";
+		};
+		A9A7FD4E1E77BFF800A22623 /* Patrick_FireBaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD4F1E77BFF800A22623 /* Patrick_FireBaseTests.swift */,
+				A9A7FD511E77BFF800A22623 /* Info.plist */,
+			);
+			path = Patrick_FireBaseTests;
+			sourceTree = "<group>";
+		};
+		A9A7FD591E77BFF800A22623 /* Patrick_FireBaseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD5A1E77BFF800A22623 /* Patrick_FireBaseUITests.swift */,
+				A9A7FD5C1E77BFF800A22623 /* Info.plist */,
+			);
+			path = Patrick_FireBaseUITests;
+			sourceTree = "<group>";
+		};
+		A9A7FD6C1E77C28100A22623 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FDA11E77C94600A22623 /* PKHelper */,
+				A9A7FD6D1E77C28100A22623 /* PKChantVC */,
+				A9A7FD6F1E77C28100A22623 /* PKLoginVC */,
+				A9A7FD711E77C28100A22623 /* PKProfileVC */,
+				A9A7FD731E77C28100A22623 /* PKRegisterVC */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A9A7FD6D1E77C28100A22623 /* PKChantVC */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD6E1E77C28100A22623 /* PKChatVC.swift */,
+			);
+			path = PKChantVC;
+			sourceTree = "<group>";
+		};
+		A9A7FD6F1E77C28100A22623 /* PKLoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD701E77C28100A22623 /* PKLoginVC.swift */,
+			);
+			path = PKLoginVC;
+			sourceTree = "<group>";
+		};
+		A9A7FD711E77C28100A22623 /* PKProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD721E77C28100A22623 /* PKProfileVC.swift */,
+			);
+			path = PKProfileVC;
+			sourceTree = "<group>";
+		};
+		A9A7FD731E77C28100A22623 /* PKRegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD741E77C28100A22623 /* PKRegisterVC.swift */,
+			);
+			path = PKRegisterVC;
+			sourceTree = "<group>";
+		};
+		A9A7FD751E77C28100A22623 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		A9A7FD761E77C28100A22623 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9A7FD771E77C28100A22623 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD781E77C28100A22623 /* API */,
+				A9A7FD791E77C28100A22623 /* Fonts */,
+				A9A7FD8A1E77C28100A22623 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A9A7FD781E77C28100A22623 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A9A7FD791E77C28100A22623 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FD7A1E77C28100A22623 /* Roboto-Black.ttf */,
+				A9A7FD7B1E77C28100A22623 /* Roboto-BlackItalic.ttf */,
+				A9A7FD7C1E77C28100A22623 /* Roboto-Bold.ttf */,
+				A9A7FD7D1E77C28100A22623 /* Roboto-BoldCondensed.ttf */,
+				A9A7FD7E1E77C28100A22623 /* Roboto-BoldCondensedItalic.ttf */,
+				A9A7FD7F1E77C28100A22623 /* Roboto-BoldItalic.ttf */,
+				A9A7FD801E77C28100A22623 /* Roboto-Condensed.ttf */,
+				A9A7FD811E77C28100A22623 /* Roboto-CondensedItalic.ttf */,
+				A9A7FD821E77C28100A22623 /* Roboto-Italic.ttf */,
+				A9A7FD831E77C28100A22623 /* Roboto-Light.ttf */,
+				A9A7FD841E77C28100A22623 /* Roboto-LightItalic.ttf */,
+				A9A7FD851E77C28100A22623 /* Roboto-Medium.ttf */,
+				A9A7FD861E77C28100A22623 /* Roboto-MediumItalic.ttf */,
+				A9A7FD871E77C28100A22623 /* Roboto-Regular.ttf */,
+				A9A7FD881E77C28100A22623 /* Roboto-Thin.ttf */,
+				A9A7FD891E77C28100A22623 /* Roboto-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A9A7FD8A1E77C28100A22623 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A9A7FD8B1E77C28100A22623 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		A9A7FD8C1E77C28100A22623 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9A7FDA11E77C94600A22623 /* PKHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A9A7FDA21E77C95700A22623 /* PKHelper.swift */,
+			);
+			path = PKHelper;
+			sourceTree = "<group>";
+		};
+		F34DB26124B0EE3880B70959 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A941BF67A518A95700667CC /* Pods-Patrick_FireBase.debug.xcconfig */,
+				CC66715F8EB34569B9E38C68 /* Pods-Patrick_FireBase.release.xcconfig */,
+				CFF1A7EC85EDE9903500676B /* Pods-Patrick_FireBaseTests.debug.xcconfig */,
+				1C3F3B93018988694CD37357 /* Pods-Patrick_FireBaseTests.release.xcconfig */,
+				8C8D27689143252C0DB57022 /* Pods-Patrick_FireBaseUITests.debug.xcconfig */,
+				D86CC256293219F3885C6CB4 /* Pods-Patrick_FireBaseUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9A7FD361E77BFF700A22623 /* Patrick_FireBase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9A7FD5F1E77BFF800A22623 /* Build configuration list for PBXNativeTarget "Patrick_FireBase" */;
+			buildPhases = (
+				B4A787754F6EE51F05312AB9 /* [CP] Check Pods Manifest.lock */,
+				A9A7FD331E77BFF700A22623 /* Sources */,
+				A9A7FD341E77BFF700A22623 /* Frameworks */,
+				A9A7FD351E77BFF700A22623 /* Resources */,
+				6039C760F36EE8910DDAA180 /* [CP] Embed Pods Frameworks */,
+				8B53AA60A21A152B29A5E86E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Patrick_FireBase;
+			productName = Patrick_FireBase;
+			productReference = A9A7FD371E77BFF700A22623 /* Patrick_FireBase.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9A7FD4A1E77BFF800A22623 /* Patrick_FireBaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9A7FD621E77BFF800A22623 /* Build configuration list for PBXNativeTarget "Patrick_FireBaseTests" */;
+			buildPhases = (
+				F70B06BC711FF49878DE6AD6 /* [CP] Check Pods Manifest.lock */,
+				A9A7FD471E77BFF800A22623 /* Sources */,
+				A9A7FD481E77BFF800A22623 /* Frameworks */,
+				A9A7FD491E77BFF800A22623 /* Resources */,
+				08F9175700B90A35BADFB0A0 /* [CP] Embed Pods Frameworks */,
+				17DFA67644ECF6E56AAFF46E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9A7FD4D1E77BFF800A22623 /* PBXTargetDependency */,
+			);
+			name = Patrick_FireBaseTests;
+			productName = Patrick_FireBaseTests;
+			productReference = A9A7FD4B1E77BFF800A22623 /* Patrick_FireBaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9A7FD551E77BFF800A22623 /* Patrick_FireBaseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9A7FD651E77BFF800A22623 /* Build configuration list for PBXNativeTarget "Patrick_FireBaseUITests" */;
+			buildPhases = (
+				C741150AD508CCC7E5CF8E0F /* [CP] Check Pods Manifest.lock */,
+				A9A7FD521E77BFF800A22623 /* Sources */,
+				A9A7FD531E77BFF800A22623 /* Frameworks */,
+				A9A7FD541E77BFF800A22623 /* Resources */,
+				2D95FDE904D343C3C0123E54 /* [CP] Embed Pods Frameworks */,
+				869EC0419BFB7428E282E11A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9A7FD581E77BFF800A22623 /* PBXTargetDependency */,
+			);
+			name = Patrick_FireBaseUITests;
+			productName = Patrick_FireBaseUITests;
+			productReference = A9A7FD561E77BFF800A22623 /* Patrick_FireBaseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9A7FD2F1E77BFF700A22623 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = indianic;
+				TargetAttributes = {
+					A9A7FD361E77BFF700A22623 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					A9A7FD4A1E77BFF800A22623 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9A7FD361E77BFF700A22623;
+					};
+					A9A7FD551E77BFF800A22623 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9A7FD361E77BFF700A22623;
+					};
+				};
+			};
+			buildConfigurationList = A9A7FD321E77BFF700A22623 /* Build configuration list for PBXProject "Patrick_FireBase" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9A7FD2E1E77BFF700A22623;
+			productRefGroup = A9A7FD381E77BFF700A22623 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9A7FD361E77BFF700A22623 /* Patrick_FireBase */,
+				A9A7FD4A1E77BFF800A22623 /* Patrick_FireBaseTests */,
+				A9A7FD551E77BFF800A22623 /* Patrick_FireBaseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9A7FD351E77BFF700A22623 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A7FDA01E77C28100A22623 /* Roboto-ThinItalic.ttf in Resources */,
+				A9A7FD9D1E77C28100A22623 /* Roboto-MediumItalic.ttf in Resources */,
+				A9A7FD9C1E77C28100A22623 /* Roboto-Medium.ttf in Resources */,
+				A9A7FD931E77C28100A22623 /* Roboto-Bold.ttf in Resources */,
+				A9A7FD981E77C28100A22623 /* Roboto-CondensedItalic.ttf in Resources */,
+				A9A7FD9B1E77C28100A22623 /* Roboto-LightItalic.ttf in Resources */,
+				A9A7FD451E77BFF800A22623 /* LaunchScreen.storyboard in Resources */,
+				A9A7FD9E1E77C28100A22623 /* Roboto-Regular.ttf in Resources */,
+				A9A7FD941E77C28100A22623 /* Roboto-BoldCondensed.ttf in Resources */,
+				A9A7FD9A1E77C28100A22623 /* Roboto-Light.ttf in Resources */,
+				A9A7FD921E77C28100A22623 /* Roboto-BlackItalic.ttf in Resources */,
+				A9A7FD991E77C28100A22623 /* Roboto-Italic.ttf in Resources */,
+				A9A7FD6B1E77C08B00A22623 /* GoogleService-Info.plist in Resources */,
+				A9A7FD911E77C28100A22623 /* Roboto-Black.ttf in Resources */,
+				A9A7FD421E77BFF800A22623 /* Assets.xcassets in Resources */,
+				A9A7FD9F1E77C28100A22623 /* Roboto-Thin.ttf in Resources */,
+				A9A7FD401E77BFF800A22623 /* Main.storyboard in Resources */,
+				A9A7FD961E77C28100A22623 /* Roboto-BoldItalic.ttf in Resources */,
+				A9A7FD971E77C28100A22623 /* Roboto-Condensed.ttf in Resources */,
+				A9A7FD951E77C28100A22623 /* Roboto-BoldCondensedItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A7FD491E77BFF800A22623 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A7FD541E77BFF800A22623 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08F9175700B90A35BADFB0A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patrick_FireBaseTests/Pods-Patrick_FireBaseTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17DFA67644ECF6E56AAFF46E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patrick_FireBaseTests/Pods-Patrick_FireBaseTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D95FDE904D343C3C0123E54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patrick_FireBaseUITests/Pods-Patrick_FireBaseUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6039C760F36EE8910DDAA180 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patrick_FireBase/Pods-Patrick_FireBase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869EC0419BFB7428E282E11A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patrick_FireBaseUITests/Pods-Patrick_FireBaseUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B53AA60A21A152B29A5E86E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Patrick_FireBase/Pods-Patrick_FireBase-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4A787754F6EE51F05312AB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C741150AD508CCC7E5CF8E0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F70B06BC711FF49878DE6AD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9A7FD331E77BFF700A22623 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A7FD901E77C28100A22623 /* PKRegisterVC.swift in Sources */,
+				A9A7FD8D1E77C28100A22623 /* PKChatVC.swift in Sources */,
+				A9A7FD3D1E77BFF800A22623 /* ViewController.swift in Sources */,
+				A9A7FD3B1E77BFF800A22623 /* AppDelegate.swift in Sources */,
+				A9A7FD8F1E77C28100A22623 /* PKProfileVC.swift in Sources */,
+				A9A7FDA31E77C95700A22623 /* PKHelper.swift in Sources */,
+				A9A7FD8E1E77C28100A22623 /* PKLoginVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A7FD471E77BFF800A22623 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A7FD501E77BFF800A22623 /* Patrick_FireBaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A7FD521E77BFF800A22623 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A7FD5B1E77BFF800A22623 /* Patrick_FireBaseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9A7FD4D1E77BFF800A22623 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9A7FD361E77BFF700A22623 /* Patrick_FireBase */;
+			targetProxy = A9A7FD4C1E77BFF800A22623 /* PBXContainerItemProxy */;
+		};
+		A9A7FD581E77BFF800A22623 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9A7FD361E77BFF700A22623 /* Patrick_FireBase */;
+			targetProxy = A9A7FD571E77BFF800A22623 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9A7FD3E1E77BFF800A22623 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9A7FD3F1E77BFF800A22623 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9A7FD431E77BFF800A22623 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9A7FD441E77BFF800A22623 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9A7FD5D1E77BFF800A22623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9A7FD5E1E77BFF800A22623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9A7FD601E77BFF800A22623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A941BF67A518A95700667CC /* Pods-Patrick_FireBase.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Patrick_FireBase/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indianic.Patrick-FireBase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A9A7FD611E77BFF800A22623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC66715F8EB34569B9E38C68 /* Pods-Patrick_FireBase.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Patrick_FireBase/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indianic.Patrick-FireBase";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A9A7FD631E77BFF800A22623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFF1A7EC85EDE9903500676B /* Pods-Patrick_FireBaseTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Patrick_FireBaseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indianic.Patrick-FireBaseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Patrick_FireBase.app/Patrick_FireBase";
+			};
+			name = Debug;
+		};
+		A9A7FD641E77BFF800A22623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C3F3B93018988694CD37357 /* Pods-Patrick_FireBaseTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Patrick_FireBaseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indianic.Patrick-FireBaseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Patrick_FireBase.app/Patrick_FireBase";
+			};
+			name = Release;
+		};
+		A9A7FD661E77BFF800A22623 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C8D27689143252C0DB57022 /* Pods-Patrick_FireBaseUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Patrick_FireBaseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indianic.Patrick-FireBaseUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Patrick_FireBase;
+			};
+			name = Debug;
+		};
+		A9A7FD671E77BFF800A22623 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D86CC256293219F3885C6CB4 /* Pods-Patrick_FireBaseUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Patrick_FireBaseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.indianic.Patrick-FireBaseUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Patrick_FireBase;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9A7FD321E77BFF700A22623 /* Build configuration list for PBXProject "Patrick_FireBase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9A7FD5D1E77BFF800A22623 /* Debug */,
+				A9A7FD5E1E77BFF800A22623 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9A7FD5F1E77BFF800A22623 /* Build configuration list for PBXNativeTarget "Patrick_FireBase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9A7FD601E77BFF800A22623 /* Debug */,
+				A9A7FD611E77BFF800A22623 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9A7FD621E77BFF800A22623 /* Build configuration list for PBXNativeTarget "Patrick_FireBaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9A7FD631E77BFF800A22623 /* Debug */,
+				A9A7FD641E77BFF800A22623 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9A7FD651E77BFF800A22623 /* Build configuration list for PBXNativeTarget "Patrick_FireBaseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9A7FD661E77BFF800A22623 /* Debug */,
+				A9A7FD671E77BFF800A22623 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9A7FD2F1E77BFF700A22623 /* Project object */;
+}
