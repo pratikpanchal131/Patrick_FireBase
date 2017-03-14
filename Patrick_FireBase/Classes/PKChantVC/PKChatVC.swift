@@ -44,12 +44,17 @@ class PKChatVC: JSQMessagesViewController {
     
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
+     
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+        
         
     }
     
     
     
-    // MARK: - Collectionview DataSource
+    // MARK: - Collectionview DataSource Display Message on Chat View
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -97,4 +102,23 @@ class PKChatVC: JSQMessagesViewController {
     }
    
 
+}
+
+
+extension PKChatVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let picture = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let photo  = JSQPhotoMediaItem(image:picture)
+        
+        
+        message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
+        self.dismiss(animated: true, completion: nil)
+        
+        collectionView.reloadData()
+    }
+
+    
+    
 }

@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Patrick_FireBase/Classes/PKLoginVC/PKLoginVC.swift"
-            timestampString = "511181886.058555"
+            filePath = "Patrick_FireBase/Classes/PKChantVC/PKChatVC.swift"
+            timestampString = "511186005.212136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "PKLoginVC"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Patrick_FireBase/Classes/PKLoginVC/PKLoginVC.swift"
-            timestampString = "511181944.23019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "sign(_:didSignInFor:withError:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "didPressAccessoryButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
