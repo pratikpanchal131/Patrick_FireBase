@@ -16,7 +16,7 @@ class PKChatVC: JSQMessagesViewController {
 
     
     var message = [JSQMessage]()
-    
+    var messageRef = FIRDatabase.database().reference().child("messages")
     
     // MARK: - View Life Cycle
     
@@ -24,40 +24,45 @@ class PKChatVC: JSQMessagesViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-  
-        let rootRef = FIRDatabase.database().reference()
-        let messageRef = rootRef.child("Messages")
-        
-        messageRef.childByAutoId().setValue("First Name")
-        messageRef.childByAutoId().setValue("Last Name")
-        print("messageRef \(messageRef)")
-        print("messageRef \(messageRef)")
-        
-        messageRef.observe(FIRDataEventType.value) { (snapshot:FIRDataSnapshot) in
-            
-            print(snapshot.value)
-            if let dict = snapshot.value as? NSDictionary
-            {
-                print("dict \(dict)")
-            }
-        }
-        
         self.senderId = "1"
         self.senderDisplayName = "Pratik"
-  
-        collectionView.reloadData()
+
+        self.observeMessages()
+    }
+    
+    
+    // MARK:- Get Messages from Firebase Databe
+    func observeMessages()
+    {
         
+        messageRef.observe(FIRDataEventType.childAdded) { (snapshot:FIRDataSnapshot) in
+            
+            let dict = snapshot.value as? [String : AnyObject]
+            
+            let MediaType = dict?["MediaType"] as? String
+            let text = dict?["text"] as! String
+            let senderID = dict?["senderID"] as! String
+            let senderDisplayName = dict?["senderDisplayName"] as! String
+            
+            self.message.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
+            self.collectionView.reloadData()
+            
+        }
     }
     
     // MARK: - Send Button
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
     
-        print("text Message is \(text)")
+        let newMessage = messageRef.childByAutoId()
+        let messageData = ["text":text , "senderID":senderId , "senderDisplayName":senderDisplayName, "MediaType":"TEXT"]
+        newMessage.setValue(messageData)
         
-        
-        message.append(JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: text))
-        print("Messages is \(message)")
-        collectionView.reloadData()
+//        print("text Message is \(text)")
+//        
+//        
+//        message.append(JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: text))
+//        print("Messages is \(message)")
+//        collectionView.reloadData()
 
     }
     
