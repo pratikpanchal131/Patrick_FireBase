@@ -153,22 +153,53 @@ class PKChatVC: JSQMessagesViewController {
                 
                 
                 let downloader = SDWebImageDownloader.shared()
+//                
+//                downloader.downloadImage(with: NSURL(string:fileURL!) as URL?, options: [], progress: nil, completed: { (image :UIImage?, data: Data?, error :Error?, finished :Bool) in
+//                    
+//                    DispatchQueue.main.async {
+//                        
+//                        photo?.image  = image
+//                        
+//                        self.collectionView.reloadData()
+//                        
+//                    }
+//                })
                 
-                downloader.downloadImage(with: NSURL(string:fileURL!) as URL?, options: [], progress: nil, completed: { (image :UIImage?, data: Data?, error :Error?, finished :Bool) in
-                    
-                    DispatchQueue.main.async {
+                // SDWebImage
+               downloader.downloadImage(with: NSURL(string:fileURL!) as URL?, options: SDWebImageDownloaderOptions.highPriority, progress: { (min, max, url) in
+                }, completed: { (image, data, error, finished) in
+                    if image != nil {
+                        DispatchQueue.main.async {
+                            photo?.image  = image
+                            self.collectionView.reloadData()
+                        }
                         
-                        photo?.image  = image
-                        
-                        self.collectionView.reloadData()
-                        
+                    } else {
+                        print("wrong")
                     }
                 })
                 
                 
-                downloader.downloadImage(with: <#T##URL?#>, options: <#T##SDWebImageDownloaderOptions#>, progress: { (, <#Int#>, <#URL?#>) in
-                    <#code#>
-                }, completed: <#T##SDWebImageDownloaderCompletedBlock?##SDWebImageDownloaderCompletedBlock?##(UIImage?, Data?, Error?, Bool) -> Void#>)
+                
+//                var manager:SDWebImageManager = SDWebImageManager.shared()
+//                
+//                self.manager.downloadImage(NSURL(string:fileURL!) as URL?,
+//                                                  options: SDWebImageOptions.HighPriority,
+//                                                  progress: nil,
+//                                                  completed: {[weak self] (image, error, cached, finished, url) in
+//                                                    if (error == nil && image && finished) {
+//                                                        // do something with image
+//                                                        DispatchQueue.main.async {
+//                                                            
+//                                                            photo?.image  = image
+//                                                            
+//                                                            self.collectionView.reloadData()
+//                                                            
+//                                                        }
+//                                                    }
+//                })
+
+                
                 
                 
                 self.messages.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
