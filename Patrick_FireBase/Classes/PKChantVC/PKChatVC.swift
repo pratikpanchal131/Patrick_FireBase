@@ -13,7 +13,7 @@ import AVKit
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
-
+import SDWebImage
 
 class PKChatVC: JSQMessagesViewController {
 
@@ -21,7 +21,7 @@ class PKChatVC: JSQMessagesViewController {
     var messages = [JSQMessage]()
     var messageRef = FIRDatabase.database().reference().child("messages")
     var avatarDic = [String : JSQMessagesAvatarImage]()
-    let photoCache = NSCache<AnyObject, AnyObject>()
+//    let photoCache = NSCache<AnyObject, AnyObject>()
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -119,37 +119,56 @@ class PKChatVC: JSQMessagesViewController {
                 
                 
                 
-                let fileURL = dict?["fileURL"] as! String
-
-                var photo  = JSQPhotoMediaItem(image:nil)
+              
+//                if let cacchedPhoto = self.photoCache.object(forKey: fileURL as AnyObject) as? JSQPhotoMediaItem{
+//                    photo = cacchedPhoto
+//                    self.collectionView.reloadData()
+//                }
+//                else
+//                {
+//                    DispatchQueue.global(qos: .background).async {
+//                        print("This is run on the background queue After")
+//                        
+//                        let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
+//                        
+//                        
+//                        
+//                        DispatchQueue.main.async {
+//                            
+//                            let picture  = UIImage(data:data as! Data)
+//                            photo?.image  = picture
+//                            
+//                            self.collectionView.reloadData()
+//                            
+//                            self.photoCache.setObject(photo!, forKey: fileURL as AnyObject)
+//                            print("This is run on the main queue, after the previous code in outer block")
+//                        }
+//                    }
+//                    
+//                }
+//               
                 
-                if let cacchedPhoto = self.photoCache.object(forKey: fileURL as AnyObject) as? JSQPhotoMediaItem{
-                    photo = cacchedPhoto
-                    self.collectionView.reloadData()
-                }
-                else
-                {
-                    DispatchQueue.global(qos: .background).async {
-                        print("This is run on the background queue After")
-                        
-                        let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
-                        
-                        
-                        
-                        DispatchQueue.main.async {
-                            
-                            let picture  = UIImage(data:data as! Data)
-                            photo?.image  = picture
-                            
-                            self.collectionView.reloadData()
-                            
-                            self.photoCache.setObject(photo!, forKey: fileURL as AnyObject)
-                            print("This is run on the main queue, after the previous code in outer block")
-                        }
-                    }
+                var photo  = JSQPhotoMediaItem(image:nil)
+                let fileURL = dict?["fileURL"] as? String
+                
+                
+                let downloader = SDWebImageDownloader.shared()
+                
+                downloader.downloadImage(with: NSURL(string:fileURL!) as URL?, options: [], progress: nil, completed: { (image :UIImage?, data: Data?, error :Error?, finished :Bool) in
                     
-                }
-               
+                    DispatchQueue.main.async {
+                        
+                        photo?.image  = image
+                        
+                        self.collectionView.reloadData()
+                        
+                    }
+                })
+                
+                
+                downloader.downloadImage(with: <#T##URL?#>, options: <#T##SDWebImageDownloaderOptions#>, progress: { (, <#Int#>, <#URL?#>) in
+                    <#code#>
+                }, completed: <#T##SDWebImageDownloaderCompletedBlock?##SDWebImageDownloaderCompletedBlock?##(UIImage?, Data?, Error?, Bool) -> Void#>)
                 
                 
                 self.messages.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))

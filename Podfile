@@ -11,7 +11,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'JSQMessagesViewController'
 pod 'GoogleSignIn'
-
+  pod 'SDWebImage'
   # Pods for Patrick_FireBase
 
   target 'Patrick_FireBaseTests' do
