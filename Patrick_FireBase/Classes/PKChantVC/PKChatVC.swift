@@ -40,11 +40,29 @@ class PKChatVC: JSQMessagesViewController {
             let dict = snapshot.value as? [String : AnyObject]
             
             let MediaType = dict?["MediaType"] as? String
-            let text = dict?["text"] as! String
+            
             let senderID = dict?["senderID"] as! String
             let senderDisplayName = dict?["senderDisplayName"] as! String
             
-            self.message.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
+            if let text = dict?["text"] as? String
+            {
+                self.message.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
+
+            }else
+            {
+                let fileURL = dict?["fileURL"] as! String
+                let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
+                let picture  = UIImage(data:data as! Data)
+                let photo  = JSQPhotoMediaItem(image:picture)
+                
+                
+                self.message.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
+            }
+            
+            
+            
+        
+            
             self.collectionView.reloadData()
             
         }
