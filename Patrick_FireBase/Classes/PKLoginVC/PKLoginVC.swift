@@ -94,9 +94,11 @@ class PKLoginVC: UIViewController ,GIDSignInUIDelegate,GIDSignInDelegate {
             print(user?.email)
             print(user?.photoURL)
             
+                let imageUrl = signIn.currentUser.profile.imageURL(withDimension: 120)
+                print(" image url: ", imageUrl?.absoluteString)
             
             let newUser = FIRDatabase.database().reference().child("Users").child((user?.uid)!)
-            newUser.setValue(["displayName": "\((user?.displayName)!)",  "id":"\((user?.uid)!)" , "ProfileURL":"\((user?.photoURL)!)"])
+            newUser.setValue(["displayName": "\((user?.displayName)!)",  "id":"\((user?.uid)!)" , "ProfileURL":"\((imageUrl)!)"])
             
             
             

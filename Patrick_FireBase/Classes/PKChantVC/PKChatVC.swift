@@ -20,6 +20,7 @@ class PKChatVC: JSQMessagesViewController {
     
     var messages = [JSQMessage]()
     var messageRef = FIRDatabase.database().reference().child("messages")
+    var avatarDic = [String : JSQMessagesAvatarImage]()
     
     // MARK: - View Life Cycle
     
@@ -49,6 +50,46 @@ class PKChatVC: JSQMessagesViewController {
     }
     
     
+    func observeUsers(id: String){
+        FIRDatabase.database().reference().child("Users").child(id).observe(.value, with: { snapshot in
+            print(snapshot.value)
+            if let dict = snapshot.value as? [String: AnyObject] {
+                let avatarUrl = dict["ProfileURL"] as! String
+                
+                //call the setupAvatar function
+                self.avatar(url: avatarUrl, messageId: id)
+                
+            }
+        })
+    }
+    
+    
+    func avatar(url: String, messageId: String){
+        
+        
+        if url != "" {
+            let fileURL = NSURL(string: url )
+            let data = NSData(contentsOf: fileURL! as URL)
+            let image = UIImage(data:data! as Data) // 
+            
+            let userImg = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 30)
+            avatarDic[messageId] = userImg!
+        }else{
+            
+//            JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "user"), diameter: 30)
+////            JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "user"), diameter: 30)
+//            avatarDic[messageId] =  JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "user"), diameter: 30)
+
+            let userImg = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "user"), diameter: 30)
+            avatarDic[messageId] = userImg!
+            
+            
+        }
+        collectionView.reloadData()
+    }
+    
+    
+    
     // MARK:- Get Messages from Firebase Databe
     func observeMessages()
     {
@@ -64,7 +105,7 @@ class PKChatVC: JSQMessagesViewController {
             let senderID = dict?["senderID"] as! String
             let senderDisplayName = dict?["senderDisplayName"] as! String
             
-        
+            self.observeUsers(id: senderID)
             
             switch MediaType {
             case "TEXT":
@@ -228,7 +269,15 @@ class PKChatVC: JSQMessagesViewController {
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         
-        return  nil;
+        let message = messages[indexPath.item]
+        
+
+        print("Avatar Image data \(message)  \(avatarDic[message.senderId])")
+        return avatarDic[message.senderId]
+        
+        
+//        return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "user"), diameter: 30)
+//        return  JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "user")!, diameter: 30);
         
         
     }
