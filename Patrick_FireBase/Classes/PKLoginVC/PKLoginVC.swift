@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import FirebaseDatabase
 
 class PKLoginVC: UIViewController ,GIDSignInUIDelegate,GIDSignInDelegate {
  
@@ -55,6 +56,9 @@ class PKLoginVC: UIViewController ,GIDSignInUIDelegate,GIDSignInDelegate {
     @IBAction func btnLoginAnonymouslyClicked(_ sender: Any) {
         
 
+        
+    
+        
         PKHelper.helper.loginAnonymously()
         
         
@@ -88,6 +92,13 @@ class PKLoginVC: UIViewController ,GIDSignInUIDelegate,GIDSignInDelegate {
             // ...
             print(user?.displayName)
             print(user?.email)
+            print(user?.photoURL)
+            
+            
+            let newUser = FIRDatabase.database().reference().child("Users").child((user?.uid)!)
+            newUser.setValue(["displayName": "\((user?.displayName)!)",  "id":"\((user?.uid)!)" , "ProfileURL":"\((user?.photoURL)!)"])
+            
+            
             
             if error != nil {
                 // ...

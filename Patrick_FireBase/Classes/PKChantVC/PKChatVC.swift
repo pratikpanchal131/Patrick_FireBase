@@ -28,12 +28,23 @@ class PKChatVC: JSQMessagesViewController {
 
         // Do any additional setup after loading the view.
         
-        let currentUser = FIRAuth.auth()?.currentUser
-        
-        
-        self.senderId = currentUser?.uid
-        self.senderDisplayName = currentUser?.displayName
+        if let currentUser = FIRAuth.auth()?.currentUser
+        {
+            self.senderId = currentUser.uid
+            
+            if currentUser.isAnonymous{
+                self.senderDisplayName = "Anonymouse"
 
+            }else
+            {
+                self.senderDisplayName = currentUser.displayName
+
+            }
+            
+        }
+        
+        
+ 
         self.observeMessages()
     }
     

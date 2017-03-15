@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import FirebaseDatabase
 
 class PKHelper {
     
@@ -21,7 +22,15 @@ class PKHelper {
             if error == nil
             {
                 print("userid \(user?.uid)!")
+                
+                let newUser = FIRDatabase.database().reference().child("Users").child((user?.uid)!)
+                newUser.setValue(["displayName": "Anonymouse",  "id":"\((user?.uid)!)" , "ProfileURL":""])
+        
+                
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                
                 
                 let appDelegate = UIApplication.shared.delegate  as! AppDelegate
                 
