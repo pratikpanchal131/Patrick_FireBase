@@ -218,6 +218,14 @@ class PKChatVC: JSQMessagesViewController {
     
     @IBAction func btnLogoutClicked(_ sender: Any) {
         
+        
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch let error {
+            print(error)
+            
+        }
+        
         //Create a main storyboard instance
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //From Main Storyboard instantiate a navigation controller

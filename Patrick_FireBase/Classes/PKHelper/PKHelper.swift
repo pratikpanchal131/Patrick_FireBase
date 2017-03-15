@@ -48,5 +48,17 @@ class PKHelper {
         
     }
     
+    func switchNavigationController()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let appDelegate = UIApplication.shared.delegate  as! AppDelegate
+        
+        
+        let navVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as! UINavigationController
+        //                navVC.pushViewController(navVC, animated: true)
+        appDelegate.window?.rootViewController = navVC;
+    }
+    
     
 }

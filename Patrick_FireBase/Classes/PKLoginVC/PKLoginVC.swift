@@ -32,6 +32,25 @@ class PKLoginVC: UIViewController ,GIDSignInUIDelegate,GIDSignInDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(FIRAuth.auth()?.currentUser)
+        FIRAuth.auth()?.addStateDidChangeListener({ ( auth : FIRAuth, user:FIRUser?) in
+            if user != nil
+            {
+                print(user)
+                PKHelper.helper.switchNavigationController()
+            }
+            else
+            {
+                print("UnAuthorized")
+
+            }
+            
+        })
+    }
 
     @IBAction func btnLoginAnonymouslyClicked(_ sender: Any) {
         
