@@ -18,7 +18,7 @@ import FirebaseAuth
 class PKChatVC: JSQMessagesViewController {
 
     
-    var message = [JSQMessage]()
+    var messages = [JSQMessage]()
     var messageRef = FIRDatabase.database().reference().child("messages")
     
     // MARK: - View Life Cycle
@@ -27,8 +27,12 @@ class PKChatVC: JSQMessagesViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.senderId = "1"
-        self.senderDisplayName = "Pratik"
+        
+        let currentUser = FIRAuth.auth()?.currentUser
+        
+        
+        self.senderId = currentUser?.uid
+        self.senderDisplayName = currentUser?.displayName
 
         self.observeMessages()
     }
@@ -55,7 +59,8 @@ class PKChatVC: JSQMessagesViewController {
             case "TEXT":
                 
                 let text = dict?["text"] as? String
-                self.message.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
+                
+                self.messages.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
                 break;
             case "PHOTO":
                 
@@ -63,17 +68,30 @@ class PKChatVC: JSQMessagesViewController {
                 let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
                 let picture  = UIImage(data:data as! Data)
                 let photo  = JSQPhotoMediaItem(image:picture)
-                self.message.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
-                
+                self.messages.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
             
+                if self.senderId == senderID
+                {
+                    photo?.appliesMediaViewMaskAsOutgoing = true
+                }else
+                {
+                    photo?.appliesMediaViewMaskAsOutgoing = false
+                }
                 break;
             case "VIDEO":
                 
                 let fileURL = dict?["fileURL"] as! String
                 let video =  NSURL(string:fileURL)
                 let videoItem = JSQVideoMediaItem(fileURL: video as! URL, isReadyToPlay: true)
-                self.message.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: videoItem))
+                self.messages.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: videoItem))
         
+                if self.senderId == senderID
+                {
+                    videoItem?.appliesMediaViewMaskAsOutgoing = true
+                }else
+                {
+                    videoItem?.appliesMediaViewMaskAsOutgoing = false
+                }
                 break;
             default:
                 print("Unknown Data ype")
@@ -109,6 +127,7 @@ class PKChatVC: JSQMessagesViewController {
         let newMessage = messageRef.childByAutoId()
         let messageData = ["text":text , "senderID":senderId , "senderDisplayName":senderDisplayName, "MediaType":"TEXT"]
         newMessage.setValue(messageData)
+        self.finishSendingMessage()
         
 //        print("text Message is \(text)")
 //        
@@ -166,7 +185,7 @@ class PKChatVC: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return message.count
+        return messages.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -177,15 +196,23 @@ class PKChatVC: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         
-        return message[indexPath.item]
+        return messages[indexPath.item]
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         
-        let bubble =    JSQMessagesBubbleImageFactory ()
-    
+        let message =  self.messages[indexPath.item]
         
-        return bubble?.outgoingMessagesBubbleImage(with: .black)
+        let bubbleFactory = JSQMessagesBubbleImageFactory()
+//        let bubble =    JSQMessagesBubbleImageFactory ()
+        if message.senderId == self.senderId{
+            return bubbleFactory?.outgoingMessagesBubbleImage(with: .black)
+        }else
+        {
+            return bubbleFactory?.incomingMessagesBubbleImage(with: .blue)
+        }
+        
+        
     }
 
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -198,7 +225,7 @@ class PKChatVC: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
         print("IndexPAth\(indexPath)")
         
-        let message =  self.message[indexPath.item]
+        let message =  self.messages[indexPath.item]
         if message.isMediaMessage{
             if let mediaItem = message.media as? JSQVideoMediaItem
             {
@@ -218,7 +245,7 @@ class PKChatVC: JSQMessagesViewController {
     
     @IBAction func btnLogoutClicked(_ sender: Any) {
         
-        
+    
         do {
             try FIRAuth.auth()?.signOut()
         } catch let error {
@@ -308,16 +335,14 @@ extension PKChatVC : UIImagePickerControllerDelegate,UINavigationControllerDeleg
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
       
         if let picture = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            let photo  = JSQPhotoMediaItem(image:picture)
-            
-            
-            self.message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
+//            let photo  = JSQPhotoMediaItem(image:picture)
+//            self.message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
             sendMedia(picture: picture, video: nil)
             
         }else if let video = info[UIImagePickerControllerMediaURL] as? NSURL
         {
-            let videoItem = JSQVideoMediaItem(fileURL:video as URL! ,isReadyToPlay:true)
-            self.message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: videoItem))
+//            let videoItem = JSQVideoMediaItem(fileURL:video as URL! ,isReadyToPlay:true)
+//            self.message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: videoItem))
             sendMedia(picture: nil, video: video)
 
         }
