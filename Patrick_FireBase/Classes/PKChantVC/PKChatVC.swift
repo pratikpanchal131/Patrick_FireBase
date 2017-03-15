@@ -21,7 +21,7 @@ class PKChatVC: JSQMessagesViewController {
     var messages = [JSQMessage]()
     var messageRef = FIRDatabase.database().reference().child("messages")
     var avatarDic = [String : JSQMessagesAvatarImage]()
-    
+    let photoCache = NSCache<AnyObject, AnyObject>()
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -116,10 +116,42 @@ class PKChatVC: JSQMessagesViewController {
                 break;
             case "PHOTO":
                 
+                
+                
+                
                 let fileURL = dict?["fileURL"] as! String
-                let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
-                let picture  = UIImage(data:data as! Data)
-                let photo  = JSQPhotoMediaItem(image:picture)
+
+                var photo  = JSQPhotoMediaItem(image:nil)
+                
+                if let cacchedPhoto = self.photoCache.object(forKey: fileURL as AnyObject) as? JSQPhotoMediaItem{
+                    photo = cacchedPhoto
+                    self.collectionView.reloadData()
+                }
+                else
+                {
+                    DispatchQueue.global(qos: .background).async {
+                        print("This is run on the background queue After")
+                        
+                        let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
+                        
+                        
+                        
+                        DispatchQueue.main.async {
+                            
+                            let picture  = UIImage(data:data as! Data)
+                            photo?.image  = picture
+                            
+                            self.collectionView.reloadData()
+                            
+                            self.photoCache.setObject(photo!, forKey: fileURL as AnyObject)
+                            print("This is run on the main queue, after the previous code in outer block")
+                        }
+                    }
+                    
+                }
+               
+                
+                
                 self.messages.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
             
                 if self.senderId == senderID

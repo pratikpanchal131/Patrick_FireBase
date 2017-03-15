@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Patrick_FireBase/Classes/PKChantVC/PKChatVC.swift"
-            timestampString = "511271829.35287"
+            timestampString = "511275218.564533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "collectionView(_:avatarImageDataForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
