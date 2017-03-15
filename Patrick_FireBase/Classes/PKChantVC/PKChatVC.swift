@@ -38,29 +38,61 @@ class PKChatVC: JSQMessagesViewController {
     func observeMessages()
     {
         
+        
+        
         messageRef.observe(FIRDataEventType.childAdded) { (snapshot:FIRDataSnapshot) in
             
             let dict = snapshot.value as? [String : AnyObject]
             
-            let MediaType = dict?["MediaType"] as? String
+            let MediaType = dict?["MediaType"] as! String
             
             let senderID = dict?["senderID"] as! String
             let senderDisplayName = dict?["senderDisplayName"] as! String
             
-            if let text = dict?["text"] as? String
-            {
+        
+            
+            switch MediaType {
+            case "TEXT":
+                
+                let text = dict?["text"] as? String
                 self.message.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
-
-            }else
-            {
+                break;
+            case "PHOTO":
+                
                 let fileURL = dict?["fileURL"] as! String
                 let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
                 let picture  = UIImage(data:data as! Data)
                 let photo  = JSQPhotoMediaItem(image:picture)
-                
-                
                 self.message.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
+                
+            
+                break;
+            case "VIDEO":
+                
+                let fileURL = dict?["fileURL"] as! String
+                let video =  NSURL(string:fileURL)
+                let videoItem = JSQVideoMediaItem(fileURL: video as! URL, isReadyToPlay: true)
+                self.message.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: videoItem))
+        
+                break;
+            default:
+                print("Unknown Data ype")
             }
+            
+//            if let text = dict?["text"] as? String
+//            {
+//                self.message.append(JSQMessage(senderId: senderID, displayName: senderDisplayName, text: text))
+//
+//            }else
+//            {
+//                let fileURL = dict?["fileURL"] as! String
+//                let data =  NSData(contentsOf: NSURL(string:fileURL)! as URL)
+//                let picture  = UIImage(data:data as! Data)
+//                let photo  = JSQPhotoMediaItem(image:picture)
+//                
+//                
+//                self.message.append(JSQMessage(senderId: senderID, displayName:senderDisplayName, media: photo))
+//            }
             
             
             
@@ -201,6 +233,7 @@ class PKChatVC: JSQMessagesViewController {
     {
         print("picture\(picture)")
         print(FIRStorage.storage().reference())
+        
         if let picture = picture{
             let filePath = "\(FIRAuth.auth()!.currentUser!)/\(NSDate.timeIntervalSinceReferenceDate)"
             print("filePath\(filePath)")
@@ -226,7 +259,8 @@ class PKChatVC: JSQMessagesViewController {
                 
             })
 
-        } else if let video = video{
+        }
+        else if let video = video{
             let filePath = "\(FIRAuth.auth()!.currentUser!)/\(NSDate.timeIntervalSinceReferenceDate)"
             print("filePath\(filePath)")
 
@@ -269,13 +303,13 @@ extension PKChatVC : UIImagePickerControllerDelegate,UINavigationControllerDeleg
             let photo  = JSQPhotoMediaItem(image:picture)
             
             
-            message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
+            self.message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
             sendMedia(picture: picture, video: nil)
             
         }else if let video = info[UIImagePickerControllerMediaURL] as? NSURL
         {
             let videoItem = JSQVideoMediaItem(fileURL:video as URL! ,isReadyToPlay:true)
-            message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: videoItem))
+            self.message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: videoItem))
             sendMedia(picture: nil, video: video)
 
         }
