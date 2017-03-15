@@ -11,6 +11,9 @@ import JSQMessagesViewController
 import MobileCoreServices
 import AVKit
 import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
+
 
 class PKChatVC: JSQMessagesViewController {
 
@@ -193,6 +196,66 @@ class PKChatVC: JSQMessagesViewController {
         appDelegate.window?.rootViewController = loginVC
     }
    
+    
+    func sendMedia(picture:UIImage? , video:NSURL?)
+    {
+        print("picture\(picture)")
+        print(FIRStorage.storage().reference())
+        if let picture = picture{
+            let filePath = "\(FIRAuth.auth()!.currentUser!)/\(NSDate.timeIntervalSinceReferenceDate)"
+            print("filePath\(filePath)")
+            let data = UIImageJPEGRepresentation(picture, 0.1)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpg"
+            
+            FIRStorage.storage().reference().child(filePath).put(data!, metadata: metaData, completion: { (metaData,
+                error) in
+                if error != nil
+                {
+                    print("")
+                    return
+                }else
+                {
+                    let fileUrl = metaData?.downloadURLs![0].absoluteString
+                    
+                    let newMessage = self.messageRef.childByAutoId()
+                    let messageData = ["fileURL":fileUrl , "senderID":self.senderId ,"senderDisplayName":self.senderDisplayName,"MediaType":"PHOTO"]
+                    newMessage.setValue(messageData)
+                }
+                
+                
+            })
+
+        } else if let video = video{
+            let filePath = "\(FIRAuth.auth()!.currentUser!)/\(NSDate.timeIntervalSinceReferenceDate)"
+            print("filePath\(filePath)")
+
+            let data =  NSData(contentsOf:video as URL)
+            
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "video/mp4"
+            
+            FIRStorage.storage().reference().child(filePath).put(data! as Data, metadata: metaData, completion: { (metaData,
+                error) in
+                if error != nil
+                {
+                    print("")
+                    return
+                }else
+                {
+                    let fileUrl = metaData?.downloadURLs![0].absoluteString
+                    
+                    let newMessage = self.messageRef.childByAutoId()
+                    let messageData = ["fileURL":fileUrl , "senderID":self.senderId ,"senderDisplayName":self.senderDisplayName,"MediaType":"VIDEO"]
+                    newMessage.setValue(messageData)
+                }
+                
+                
+            })
+            
+        }
+        
+    }
 
 }
 
@@ -207,11 +270,13 @@ extension PKChatVC : UIImagePickerControllerDelegate,UINavigationControllerDeleg
             
             
             message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: photo))
+            sendMedia(picture: picture, video: nil)
             
         }else if let video = info[UIImagePickerControllerMediaURL] as? NSURL
         {
             let videoItem = JSQVideoMediaItem(fileURL:video as URL! ,isReadyToPlay:true)
             message.append(JSQMessage(senderId: self.senderId, displayName:self.senderDisplayName, media: videoItem))
+            sendMedia(picture: nil, video: video)
 
         }
         self.dismiss(animated: true, completion: nil)

@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Patrick_FireBase/Classes/PKChantVC/PKChatVC.swift"
-            timestampString = "511252912.378827"
+            timestampString = "511255854.000898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "observeMessages()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Patrick_FireBase/Classes/PKChantVC/PKChatVC.swift"
-            timestampString = "511252912.378827"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "observeMessages()"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "sendMedia(picture:video:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
